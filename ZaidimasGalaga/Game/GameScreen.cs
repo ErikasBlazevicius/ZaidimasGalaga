@@ -5,11 +5,15 @@ namespace ZaidimasGalaga.Game
 {
     class GameScreen
     {
+        private const int enemyMoveFrequency = 5;
+
         private int _width;
         private int _height;
 
         private Ship _ship;
         private List<Enemy> _enemies = new List<Enemy>();
+
+        private int enemyMoveStep = 0;
 
         public GameScreen(int width, int height)
         {
@@ -46,12 +50,19 @@ namespace ZaidimasGalaga.Game
 
         public void MoveAllEnemiesDown()
         {
-            foreach (Enemy enemy in _enemies)
+            if (enemyMoveStep <= 0)
             {
-                enemy.MoveDown();
+                foreach (Enemy enemy in _enemies)
+                {
+                    enemy.MoveDown();
+                }
+                enemyMoveStep = enemyMoveFrequency;
+            }
+            else
+            {
+                enemyMoveStep--;
             }
         }
-
         public Enemy GetEnemyById(int id)
         {
             foreach (Enemy enemy in _enemies)

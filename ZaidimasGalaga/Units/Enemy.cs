@@ -8,6 +8,7 @@ namespace ZaidimasGalaga.Units
     {
         private int _id;
 
+
         public Enemy(int id, int x, int y, string name) : base(x, y, name)
         {
             this._id = id;
