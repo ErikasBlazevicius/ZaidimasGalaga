@@ -6,7 +6,7 @@ namespace ZaidimasGalaga.Units
 {
      class Ship : Unit
     {
-        public Ship (int x, int y, string representation) : base(x, y, representation)
+        public Ship (int x, int y, string viewUnit) : base(x, y, viewUnit)
         {
         }
 

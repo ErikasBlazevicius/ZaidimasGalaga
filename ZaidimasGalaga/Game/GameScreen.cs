@@ -67,11 +67,9 @@ namespace ZaidimasGalaga.Game
 
         public void Render()
         {
-
-
             foreach (Enemy enemy in _enemies)
             {
-                enemy.PrintInfo();
+                enemy.Render();
             }
             _ship.Render();
         }

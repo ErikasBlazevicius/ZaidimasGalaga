@@ -8,23 +8,23 @@ namespace ZaidimasGalaga.Units
     {
         protected int X;
         protected int Y;
-        private string _representation;
+        private string _viewUnit;
 
-        public Unit(int x, int y, string representation)
+        public Unit(int x, int y, string viewUnit)
         {
             X = x;
             Y = y;
-            _representation = representation;
+            _viewUnit = viewUnit;
         }
 
         public void PrintInfo()
         {
-            Console.WriteLine($" Unit {_representation} is at {X}x{Y}");
+            Console.WriteLine($" Unit {_viewUnit} is at {X}x{Y}");
         }
         public void Render()
         {
             Console.SetCursorPosition(X, Y);
-            Console.Write(_representation);
+            Console.Write(_viewUnit);
         }
     }
 }

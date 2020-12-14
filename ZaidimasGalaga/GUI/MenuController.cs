@@ -20,11 +20,16 @@ namespace ZaidimasGalaga.GUI
             do
             {
                 _menuWindow.Render();
-                keyInfo = Console.ReadKey();
+                do
+                {
+                    keyInfo = Console.ReadKey(true); //be true spaudziant random raides jos atviazduojamos vietoj "%" remelio formu (intercept paima paspaudima ir nespausdina i ekrana)
+                } while (keyInfo.Key != ConsoleKey.Escape 
+                        & keyInfo.Key != ConsoleKey.Enter
+                        & keyInfo.Key != ConsoleKey.RightArrow
+                        & keyInfo.Key != ConsoleKey.LeftArrow);
 
                 switch (keyInfo.Key)
                 {
-
                     case ConsoleKey.Escape:
                         needToShowApp = false;
                         break;
