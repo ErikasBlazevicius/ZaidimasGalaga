@@ -13,7 +13,7 @@ namespace ZaidimasGalaga.Game
         private Ship _ship;
         private List<Enemy> _enemies = new List<Enemy>();
 
-        private int enemyMoveStep = 0;
+        private int enemyMoveStep = enemyMoveFrequency;
 
         public GameScreen(int width, int height)
         {
@@ -48,7 +48,9 @@ namespace ZaidimasGalaga.Game
             _enemies.Add(enemy);
         }
 
-        public void MoveAllEnemiesDown()
+
+        //enemy move steep maziname kiekviena zingsni, kai pasiekia 0 - enemy pajuda ir vel statome i max (enemy move frequency
+        public void MoveAllEnemiesDown()  
         {
             if (enemyMoveStep <= 0)
             {
