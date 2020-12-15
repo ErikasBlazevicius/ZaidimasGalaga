@@ -6,7 +6,12 @@ namespace ZaidimasGalaga.GUI
 {
     class Button : GuiObject
     {
-        private string _label = "";
+        public string Label
+        {
+            get { return _textLine.Label; }
+            set { _textLine.Label = value; }
+        }
+        
         private Frame _notActiveFrame;
         private Frame _activeFrame;
 
@@ -15,7 +20,12 @@ namespace ZaidimasGalaga.GUI
         private TextLine _textLine;
 
         
-        public bool IsActive { get; set; }
+        public bool IsActive 
+        { 
+            get { return _isActive; } 
+            set { _isActive = value; 
+                Render(); }
+        }
 
         public Button(int x, int y, int width, int height, string buttonText) : base(x, y, width, height)
         {

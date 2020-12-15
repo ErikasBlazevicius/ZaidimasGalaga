@@ -10,8 +10,8 @@ namespace ZaidimasGalaga
         {
 
 
-            GuiController guiController = new GuiController();
-            guiController.ShowMenu();
+            //GuiController guiController = new GuiController();
+            //guiController.ShowMenu();
 
 
             MenuController menu = new MenuController();

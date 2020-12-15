@@ -39,7 +39,7 @@ namespace ZaidimasGalaga.GUI
 
 
             
-            //_startButton.SetActive();
+           
 
             
         }
