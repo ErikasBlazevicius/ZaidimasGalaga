@@ -8,6 +8,8 @@ namespace ZaidimasGalaga.Game
     class GameController
     {
         private GameScreen myGame;
+        private int increaseCounter = 0;
+        private int increaeTimeGaps = 30;
 
         public void StartGame()
         {
@@ -21,7 +23,7 @@ namespace ZaidimasGalaga.Game
 
         private void InitGame()
         {
-            int gameWidth = 90;
+            int gameWidth = 70;
             int gameHeigth = 20;
 
             myGame = new GameScreen(gameWidth, gameHeigth);
@@ -29,7 +31,7 @@ namespace ZaidimasGalaga.Game
             // uzpildo zaidima duomenemis
             myGame.SetShip(new Ship(gameWidth/2, gameHeigth -2, "@"));
            
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 10; i++)
             {   
                 myGame.AddRandomEnemy();  
             }
@@ -47,8 +49,7 @@ namespace ZaidimasGalaga.Game
                 while (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo pressedChar = Console.ReadKey(true);
-                    int hashCode = pressedChar.Key.GetHashCode();
-
+                    
                     switch (pressedChar.Key)
                     {
                         case ConsoleKey.Escape:
@@ -66,6 +67,13 @@ namespace ZaidimasGalaga.Game
                 myGame.ActivateEnemies();
 
                 myGame.SpawnEnemies();
+
+                if (increaseCounter > increaeTimeGaps)
+                {
+                    myGame.IncreaseEnemyMax();
+                    increaseCounter = 0;
+
+                }
                
 
                 myGame.Render();

@@ -15,6 +15,7 @@ namespace ZaidimasGalaga.Game
 
         private Ship _ship;
         private List<Enemy> _enemies = new List<Enemy>();
+        private int maxEnemiesAllowed = 20;
 
         private int enemyMoveStep = enemyMoveFrequency;
 
@@ -86,6 +87,11 @@ namespace ZaidimasGalaga.Game
             return null;
         }
 
+        internal void IncreaseEnemyMax()
+        {
+            maxEnemiesAllowed++;
+        }
+
         public void Render()
         {
             foreach (Enemy enemy in _enemies)
@@ -97,7 +103,10 @@ namespace ZaidimasGalaga.Game
 
         internal void SpawnEnemies()
         {
-            AddRandomEnemy();
+            if (_enemies.Count < maxEnemiesAllowed)
+            {
+                AddRandomEnemy();
+            }
         }
 
         internal void ActivateEnemies()
@@ -123,16 +132,16 @@ namespace ZaidimasGalaga.Game
             _enemies.Remove(enemy);
         }
 
-        private void RemoveEnemyById(int id)
-        {
-            for (int i = 0; i < _enemies.Count; i++)
-            {
-                if (_enemies[i].GetId()==id)
-                {
-                    _enemies.RemoveAt(i);
-                }
+        //private void RemoveEnemyById(int id)
+        //{
+        //    for (int i = 0; i < _enemies.Count; i++)
+        //    {
+        //        if (_enemies[i].GetId()==id)
+        //        {
+        //            _enemies.RemoveAt(i);
+        //        }
 
-            }
-        }
+        //    }
+        //}
     }
 }
