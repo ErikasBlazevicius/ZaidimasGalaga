@@ -28,16 +28,12 @@ namespace ZaidimasGalaga.Game
 
             // uzpildo zaidima duomenemis
             myGame.SetShip(new Ship(gameWidth/2, gameHeigth -2, "@"));
-            Random rnd = new Random();
-            int enemyCount = 0;
+           
             for (int i = 0; i < 20; i++)
-            {
-                myGame.AddEnemy(new Enemy(enemyCount, rnd.Next(0, gameWidth), rnd.Next(0, 5), "$"));
-                enemyCount++;
+            {   
+                myGame.AddRandomEnemy();  
             }
         }
-
-       
 
         private void StartGameLoop()
         {
@@ -69,6 +65,7 @@ namespace ZaidimasGalaga.Game
 
                 myGame.ActivateEnemies();
 
+                myGame.SpawnEnemies();
                
 
                 myGame.Render();

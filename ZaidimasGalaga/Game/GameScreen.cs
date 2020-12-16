@@ -6,6 +6,8 @@ namespace ZaidimasGalaga.Game
 {
     class GameScreen
     {
+        private int enemyCount = 0;
+        private Random rnd = new Random();
         private const int enemyMoveFrequency = 1;
 
         private int _width;
@@ -44,11 +46,14 @@ namespace ZaidimasGalaga.Game
             }
         }
 
-        public void AddEnemy(Enemy enemy)
+
+        internal void AddRandomEnemy()
         {
-            _enemies.Add(enemy);
+            _enemies.Add(new Enemy(enemyCount, rnd.Next(0, _width), rnd.Next(0, 5), "$"));
+            enemyCount++;
         }
 
+      
 
         //enemy move steep maziname kiekviena zingsni, kai pasiekia 0 - enemy pajuda ir vel statome i max (enemy move frequency
         private void MoveAllEnemiesDown()  
@@ -88,6 +93,11 @@ namespace ZaidimasGalaga.Game
                 enemy.Render();
             }
             _ship.Render();
+        }
+
+        internal void SpawnEnemies()
+        {
+            AddRandomEnemy();
         }
 
         internal void ActivateEnemies()
