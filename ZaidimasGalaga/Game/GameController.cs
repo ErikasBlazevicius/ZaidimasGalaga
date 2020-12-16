@@ -21,15 +21,18 @@ namespace ZaidimasGalaga.Game
 
         private void InitGame()
         {
-            myGame = new GameScreen(30, 20);
+            int gameWidth = 90;
+            int gameHeigth = 20;
+
+            myGame = new GameScreen(gameWidth, gameHeigth);
 
             // uzpildo zaidima duomenemis
-            myGame.SetShip(new Ship(5, 5, "@"));
+            myGame.SetShip(new Ship(gameWidth/2, gameHeigth -2, "@"));
             Random rnd = new Random();
             int enemyCount = 0;
             for (int i = 0; i < 10; i++)
             {
-                myGame.AddEnemy(new Enemy(enemyCount, rnd.Next(0, 10), rnd.Next(0, 10), "$"));
+                myGame.AddEnemy(new Enemy(enemyCount, rnd.Next(0, gameWidth), rnd.Next(0, 5), "$"));
                 enemyCount++;
             }
         }
