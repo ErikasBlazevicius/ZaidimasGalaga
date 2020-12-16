@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ZaidimasGalaga.Units;
 
 namespace ZaidimasGalaga.Game
 {
     class GameScreen
     {
-        private const int enemyMoveFrequency = 5;
+        private const int enemyMoveFrequency = 1;
 
         private int _width;
         private int _height;
@@ -50,7 +51,7 @@ namespace ZaidimasGalaga.Game
 
 
         //enemy move steep maziname kiekviena zingsni, kai pasiekia 0 - enemy pajuda ir vel statome i max (enemy move frequency
-        public void MoveAllEnemiesDown()  
+        private void MoveAllEnemiesDown()  
         {
             if (enemyMoveStep <= 0)
             {
@@ -64,7 +65,9 @@ namespace ZaidimasGalaga.Game
             {
                 enemyMoveStep--;
             }
+            
         }
+
         public Enemy GetEnemyById(int id)
         {
             foreach (Enemy enemy in _enemies)
@@ -85,6 +88,41 @@ namespace ZaidimasGalaga.Game
                 enemy.Render();
             }
             _ship.Render();
+        }
+
+        internal void ActivateEnemies()
+        {
+            MoveAllEnemiesDown();
+            RemoveEnemiesOutOfScreen();
+        }
+
+        private void RemoveEnemiesOutOfScreen()
+        {
+            for (int i = 0; i < _enemies.Count; i++)
+            {
+                if (_enemies[i].Y > _height)
+                {
+                    RemoveEnemy(_enemies[i]);
+                    i--;
+                }
+            }
+        }
+
+        private void RemoveEnemy(Enemy enemy)
+        {
+            _enemies.Remove(enemy);
+        }
+
+        private void RemoveEnemyById(int id)
+        {
+            for (int i = 0; i < _enemies.Count; i++)
+            {
+                if (_enemies[i].GetId()==id)
+                {
+                    _enemies.RemoveAt(i);
+                }
+
+            }
         }
     }
 }

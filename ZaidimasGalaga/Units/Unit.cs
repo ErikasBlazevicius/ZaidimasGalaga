@@ -4,11 +4,12 @@ using System.Text;
 
 namespace ZaidimasGalaga.Units
 {
-    class Unit
+    abstract class Unit
     {
-        protected int X;
-        protected int Y;
+        public int X { get; protected set; }
+        public int Y { get; protected set; }
         private string _viewUnit;
+        
 
         public Unit(int x, int y, string viewUnit)
         {

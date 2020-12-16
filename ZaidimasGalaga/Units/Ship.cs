@@ -24,7 +24,7 @@ namespace ZaidimasGalaga.Units
         {
             return X;
         }
-
+    
       
     }
 }

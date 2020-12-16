@@ -11,7 +11,7 @@ namespace ZaidimasGalaga.Units
 
         public Enemy(int id, int x, int y, string name) : base(x, y, name)
         {
-            this._id = id;
+            _id = id;
         }
 
         public void MoveDown()

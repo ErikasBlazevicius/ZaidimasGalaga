@@ -30,7 +30,7 @@ namespace ZaidimasGalaga.Game
             myGame.SetShip(new Ship(gameWidth/2, gameHeigth -2, "@"));
             Random rnd = new Random();
             int enemyCount = 0;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
                 myGame.AddEnemy(new Enemy(enemyCount, rnd.Next(0, gameWidth), rnd.Next(0, 5), "$"));
                 enemyCount++;
@@ -67,7 +67,9 @@ namespace ZaidimasGalaga.Game
                     }
                 }
 
-                myGame.MoveAllEnemiesDown();
+                myGame.ActivateEnemies();
+
+               
 
                 myGame.Render();
 
