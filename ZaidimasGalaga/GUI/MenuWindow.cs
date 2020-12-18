@@ -27,7 +27,6 @@ namespace ZaidimasGalaga.GUI
 
         private List<Button> _menuButtons = new List<Button>(); //naudojamu mygtuku sarasas
 
-
         public MenuWindow() : base(0, 0, 120, 30, '%')
         {
             _titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Zaidimas Galaga" });

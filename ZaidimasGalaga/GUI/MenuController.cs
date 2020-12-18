@@ -10,8 +10,7 @@ namespace ZaidimasGalaga.GUI
         private readonly MenuWindow _menuWindow = new MenuWindow();
         private readonly CreditWindow _creditWindow = new CreditWindow();
         private readonly GameController myGame = new GameController();
-        
-
+      
         //sukuria Game Window (langeliai su "Credits", "New Game" ir t.t.
         public void ShowMenu()
         {
@@ -63,7 +62,6 @@ namespace ZaidimasGalaga.GUI
 
             } while (needToShowApp);
 
-            
             //_creditWindow.Render();
         }
     }

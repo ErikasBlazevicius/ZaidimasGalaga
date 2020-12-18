@@ -13,14 +13,12 @@ namespace ZaidimasGalaga.Game
 
         public void StartGame()
         {
-
             // pasileidzia zaidimas
             InitGame();
 
             // render loop
             StartGameLoop();
         }
-
         private void InitGame()
         {
             int gameWidth = 70;
@@ -40,7 +38,6 @@ namespace ZaidimasGalaga.Game
         private void StartGameLoop()
         {
             bool needToRender = true;
-
             do
             {
                 // isvalom ekrana
@@ -72,10 +69,7 @@ namespace ZaidimasGalaga.Game
                 {
                     myGame.IncreaseEnemyMax();
                     increaseCounter = 0;
-
                 }
-               
-
                 myGame.Render();
 
                 // padaro pause ir parodo ekrana.

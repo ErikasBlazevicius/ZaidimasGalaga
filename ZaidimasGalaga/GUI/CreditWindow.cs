@@ -15,17 +15,11 @@ namespace ZaidimasGalaga.GUI
             List<String> creditData = new List<string>();
 
 
-
-            //sita dali istaisyt
-
-
-
             creditData.Add("");
             creditData.Add("Erikas Blazevicius");
             creditData.Add("");
 
             _creditTextBlock = new TextBlock(28 + 1, 10 + 1, 60 - 1, creditData);
-
 
             _backButton = new Button(28 + 20, 10 + 14, 18, 3, "Back");
             _backButton.IsActive = true;

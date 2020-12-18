@@ -9,8 +9,7 @@ namespace ZaidimasGalaga.Units
         public int X { get; protected set; }
         public int Y { get; protected set; }
         private string _viewUnit;
-        
-
+      
         public Unit(int x, int y, string viewUnit)
         {
             X = x;

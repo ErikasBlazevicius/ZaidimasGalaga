@@ -15,7 +15,6 @@ namespace ZaidimasGalaga.GUI
                 _textBlocks.Add(new TextLine(x, y + i, width, textList[i]));
             }
         }
-
         public void Render()
         {
             for (int i = 0; i < _textBlocks.Count; i++)

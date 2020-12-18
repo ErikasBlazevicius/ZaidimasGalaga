@@ -9,10 +9,8 @@ namespace ZaidimasGalaga
         static void Main(string[] args)
         {
 
-
             //GuiController guiController = new GuiController();
             //guiController.ShowMenu();
-
 
             MenuController menu = new MenuController();
             menu.ShowMenu();

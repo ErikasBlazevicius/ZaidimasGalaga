@@ -9,6 +9,7 @@ namespace ZaidimasGalaga.Game
         private int enemyCount = 0;
         private Random rnd = new Random();
         private const int enemyMoveFrequency = 1;
+        private int enemySpawnHeigt = 5;
 
         private int _width;
         private int _height;
@@ -27,10 +28,8 @@ namespace ZaidimasGalaga.Game
 
         public void SetShip(Ship ship)
         {
-            this._ship = ship;
+            _ship = ship;
         }
-
-
         public void MoveShipLeft()
         {
             if (_ship.GetX() > 0)
@@ -47,14 +46,11 @@ namespace ZaidimasGalaga.Game
             }
         }
 
-
         internal void AddRandomEnemy()
         {
-            _enemies.Add(new Enemy(enemyCount, rnd.Next(0, _width), rnd.Next(0, 5), "$"));
+            _enemies.Add(new Enemy(enemyCount, rnd.Next(0, _width), rnd.Next(0, enemySpawnHeigt), "$"));
             enemyCount++;
         }
-
-      
 
         //enemy move steep maziname kiekviena zingsni, kai pasiekia 0 - enemy pajuda ir vel statome i max (enemy move frequency
         private void MoveAllEnemiesDown()  
@@ -71,7 +67,6 @@ namespace ZaidimasGalaga.Game
             {
                 enemyMoveStep--;
             }
-            
         }
 
         public Enemy GetEnemyById(int id)
@@ -131,6 +126,8 @@ namespace ZaidimasGalaga.Game
         {
             _enemies.Remove(enemy);
         }
+
+        //prireiks naudojant tada kai bus saudami priesai.
 
         //private void RemoveEnemyById(int id)
         //{
